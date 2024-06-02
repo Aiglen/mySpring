@@ -1,17 +1,8 @@
 package main.java.cn.aigle.springframework;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import main.java.cn.aigle.springframework.beans.BeansException;
 
-public class BeanFactory {
+public interface BeanFactory {
 
-    private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
-
-    public Object getBean(String beanName) {
-        return beanDefinitionMap.get(beanName).getBean();
-    }
-
-    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) {
-        beanDefinitionMap.put(beanName, beanDefinition);
-    }
+    Object getBean(String beanName) throws BeansException;
 }
